@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuditorService } from '../auditor.service';
 
 @Component({
   selector: 'app-rio-tinto',
@@ -7,14 +8,16 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class RioTintoComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private auditor: AuditorService) { }
 
   ngOnInit() {
-    console.log("Criou Rio-tinto");
+    this.auditor.onInit();
+    //console.log("Criou Rio-tinto");
   }
 
   ngOnDestroy(){
-    console.log("Removeu Rio-tinto")
+    //console.log("Removeu Rio-tinto")
+    this.auditor.onDestroy();
   }
 
 }
